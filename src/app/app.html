@@ -1,1 +1,13 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content" side="left" type="overlay" persistent="true">
+    <ion-content>
+        <button menuClose ion-item (click)="navigate('HomePage')">
+            Expandable Header
+            <ion-icon name="ios-arrow-forward" class="navigate"></ion-icon>
+        </button>
+        <button menuClose ion-item (click)="navigate('')">
+            Shrinking Header
+            <ion-icon name="ios-arrow-forward" class="navigate"></ion-icon>
+        </button>
+    </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

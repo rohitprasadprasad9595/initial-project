@@ -1,14 +1,163 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+
+  <expandable-header [scrollArea]="mycontent" headerHeight="96">
+    <img src="https://avatars.io/instagram/pathmoretravelled" />
+    <h2>Rohit</h2>
+  </expandable-header>
+  <ion-navbar color="primary">
+    <ion-navbar>
+      <ion-buttons left>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>
+        Rohit
+      </ion-title>
+    </ion-navbar>
+
   </ion-navbar>
+  <ion-toolbar color="dark" mode="md">
+    <ion-segment color="light" mode="md" [(ngModel)]="tabs">
+      <ion-segment-button (click)="selectTab(0)" value="0">
+        <ion-icon name="home"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button (click)="selectTab(1)" value="1">
+        <ion-icon name="cog"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button (click)="selectTab(2)" value="2">
+        <ion-icon name="chatbubbles"></ion-icon>
+      </ion-segment-button>
+      <div id="slide" class="slide"></div>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content fullscreen #mycontent>
+    <!-- <form class="form-horizontal">
+        <div class="form-group">
+       -->
+    <ion-list no-lines>
+ 
+        <!-- <ion-item> -->
+          <ion-label>Phone Number</ion-label>
+          <input type="tel" [(ngModel)]="phoneNumber" [textMask]="{mask: masks.phoneNumber}">
+        <!-- </ion-item> -->
+   
+        <!-- <ion-item> -->
+          <ion-label>Card</ion-label>
+          <input type="tel" [(ngModel)]="cardNumber" [textMask]="{mask: masks.cardNumber}">
+        <!-- </ion-item> -->
+   
+        <!-- <ion-item> -->
+          <ion-label>Expiry</ion-label>
+          <input type="tel" [(ngModel)]="cardExpiry" [textMask]="{mask: masks.cardExpiry}">
+        <!-- </ion-item> -->
+   
+        <!-- <ion-item> -->
+          <ion-label>Order Code</ion-label>
+          <input type="text" [(ngModel)]="orderCode" [textMask]="{mask: masks.orderCode}">
+        <!-- </ion-item> -->
+   
+      </ion-list>
+   
+      <button ion-button outline (click)="save()">Save</button>
+      <!-- </div>
+    </form> -->
+  <ion-list no-lines>
+    <ion-item-sliding (overslide)="handleOverslide(item)" *ngFor="let item of items" #item overslide>
+      <ion-item>
+        Drag me to delete
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button (click)="favorite(item)" color="dark">Favorite</button>
+        <button ion-button color="danger" (click)="share(item)">Share</button>
+      </ion-item-options>
+
+      <ion-item-options side="right">
+        <button ion-button (click)="unread(item)">Unread</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <tap-reveal>
+ 
+      <div class="tap-reveal-before"><h2>Before</h2></div>
+
+      <div class="tap-reveal-after"><h2>After</h2></div>
+
+  </tap-reveal>
+  <ion-slides #pageSlider (ionSlideWillChange)="changeWillSlide($event)">
+    <ion-slide>
+      <!-- <div [ngSwitch]="tabs"> -->
+
+      <ion-list>
+        <ion-item *ngFor="let something of somethings">
+          <ion-thumbnail item-left>
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+          </ion-thumbnail>
+          <h2>Something</h2>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <ion-list>
+        <ion-item *ngFor="let something of somethings">
+          <ion-thumbnail item-left>
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+          </ion-thumbnail>
+          <h2>hello</h2>
+        </ion-item>
+      </ion-list>
+
+    </ion-slide>
+
+    <ion-slide>
+      <ion-list>
+        <ion-item *ngFor="let something of somethings">
+          <ion-thumbnail item-left>
+            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/marty-avatar.png">
+          </ion-thumbnail>
+          <h2>hey</h2>
+        </ion-item>
+      </ion-list>
+
+    </ion-slide>
+
+    <!-- </div> -->
+    <!-- </ion-slide> -->
+  </ion-slides>
+
 </ion-content>
+<content-drawer [options]="drawerOptions">
+  <div class="header-image"></div>
+
+  <div class="main-content">
+
+    <h2>Parallax Header</h2>
+
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+      dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+      book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+      unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+      more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+      dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+      book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+      unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+      more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+      dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+      book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+      unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+      more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+      dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+      book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+      unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+      more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+  </div>
+</content-drawer>

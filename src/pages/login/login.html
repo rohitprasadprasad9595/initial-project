@@ -1,0 +1,57 @@
+<ion-content padding>
+  <video autoplay loop src="assets/sight_video.mp4"></video>
+  <div class="login-section">
+    <ion-card>
+      
+      <ion-item>
+        <ion-avatar>
+          <img [src]="profilePicture">
+        </ion-avatar>
+      </ion-item>
+ 
+      <ion-card-content>
+ 
+        <ion-list no-lines>
+ 
+          <ion-item>
+            <ion-label floating>email</ion-label>
+            <ion-input [(ngModel)]="email" (ionChange)="emailChanged()" type="email"></ion-input>
+          </ion-item>
+ 
+          <ion-item>
+            <ion-label floating>password</ion-label>
+            <ion-input [(ngModel)]="password" type="password"></ion-input>
+          </ion-item>
+ 
+        </ion-list>
+ 
+      </ion-card-content>
+ 
+    </ion-card>
+ 
+    <button ion-button icon-right  color="dark" (click)="goTo()">Next <ion-icon name="arrow-forward"></ion-icon></button>
+  </div>
+  
+    <ion-slides autoplay="4000" pager loop>
+      <ion-slide>
+          <h4>Welcome</h4>
+          <p>Let us take care of you for the weekend</p>
+      </ion-slide>
+      <ion-slide>
+          <h4>Escape</h4>
+          <p>Let us take care of you for the weekend</p>
+      </ion-slide>
+      <ion-slide>
+          <h4>Luxury</h4>
+          <p>Let us take care of you for the weekend</p>
+      </ion-slide>
+  </ion-slides>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+      <ion-row>
+          <ion-col col-2><button ion-button icon-only color="secondary" full><ion-icon name="call"></ion-icon></button></ion-col>
+          <ion-col col-10><button ion-button color="light" full>Book Online</button></ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-footer>
