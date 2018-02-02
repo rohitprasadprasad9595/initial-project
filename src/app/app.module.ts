@@ -17,7 +17,7 @@ import { AuthInterceptor} from '../httpCall.interceptor';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp,{
-      swipeBackEnabled: 'false',
+      // swipeBackEnabled: 'false',
       backButtonText: '',
       scrollAssist: false,
       autoFocusAssist: false,
