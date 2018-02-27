@@ -1,0 +1,42 @@
+
+.dark-theme {
+    ion-menu{
+        .scroll-content{
+            background: red;
+        }
+    }
+    expandable-header{
+        background: red;
+    }
+    ion-content {
+      background-color: map-get($colors,dark);
+      .scroll-content{
+          p{
+              color: black;
+          }
+      }
+      color: #fff;
+        ion-item-sliding{
+            background-color:map-get($colors,dark);
+        }
+        ion-card,ion-item{
+            background-color: map-get($colors,dark);
+        }
+        button.button{
+            // background: red;
+            background-color: map-get($colors,dark);
+          }
+        input{
+            color: black;
+        }
+    }
+   
+    .toolbar-title {
+      color: #fff;
+    }
+   
+    .header .toolbar-background {
+      border-color: map-get($colors,dark);
+      background-color: map-get($colors,dark);
+    }
+  }  

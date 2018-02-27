@@ -1,5 +1,6 @@
 import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController,Slides, Platform, AlertController } from 'ionic-angular';
+import { SettingsProvider } from './../../providers/settings/settings';
 // import { ExpandableHeaderComponent } from '../../components/expandable-header/expandable-header';
 // import { ContentDrawerComponent } from '../../components/content-drawer/content-drawer';
 // import { ParallaxHeaderDirective } from '../../directives/parallax-header/parallax-header';
@@ -12,6 +13,7 @@ import { IonicPage, NavController,Slides, Platform, AlertController } from 'ioni
   templateUrl: 'home.html'
 })
 export class HomePage {
+  selectedTheme: String;
   @ViewChild('pageSlider') pageSlider: Slides;
   tabs: any = '0';
   somethings: any = new Array(20); 
@@ -26,7 +28,8 @@ export class HomePage {
   orderCode: any = "";
 
   public alertShown: boolean = false;
-  constructor(public navCtrl: NavController,public platform: Platform,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,private settings: SettingsProvider, public platform: Platform,public alertCtrl: AlertController) {
+  
     platform.registerBackButtonAction(() => {
       if (navCtrl.canGoBack()) { // CHECK IF THE USER IS IN THE ROOT PAGE.
         navCtrl.pop(); // IF IT'S NOT THE ROOT, POP A PAGE.
@@ -54,6 +57,7 @@ export class HomePage {
     orderCode: [/[a-zA-z]/, ':', /\d/, /\d/, /\d/, /\d/]
 };
   }
+
   
   selectTab(index) {
     this.pageSlider.slideTo(index);

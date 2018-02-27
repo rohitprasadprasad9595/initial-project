@@ -1,0 +1,37 @@
+
+.dark-theme {
+  ion-menu{
+      .scroll-content{
+          background: red;
+      }
+  }
+  expandable-header{
+      background: red;
+  }
+  ion-content {
+    background-color: map-get($colors,light);
+    color: #fff;
+      ion-item-sliding{
+          background-color:map-get($colors,light);
+      }
+      ion-card,ion-item{
+          background-color: map-get($colors,light);
+      }
+      button.button{
+        // background: red;
+        background-color: map-get($colors,danger);
+      }
+      input{
+          color: black;
+      }
+  }
+ 
+  .toolbar-title {
+    color: #fff;
+  }
+ 
+  .header .toolbar-background {
+    border-color:map-get($colors,light);
+    background-color: map-get($colors,light);
+  }
+}  
